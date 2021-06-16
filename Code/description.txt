@@ -1,0 +1,3 @@
+Jardin is an open air coworking space. 
+We're going to create a web app for booking spots at different hours of the day prior to the clients visit. 
+The app will be used also to facilitate communication between clients and admins.

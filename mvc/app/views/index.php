@@ -1,4 +1,3 @@
-<?php $this->view("menu",$data); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,11 +12,11 @@
         <link href="<?=ASSETS?>img/favicon.ico" rel="icon">
 
         <!-- Google Font -->
-        <link href="<?=ASSETS?>https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
         <!-- CSS Libraries -->
-        <link rel="stylesheet" href="<?=ASSETS?>https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
-        <link rel="stylesheet" href="<?=ASSETS?>https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" >
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" >
         <link rel="stylesheet" href="<?=ASSETS?>lib/animate/animate.min.css" >
         <link rel="stylesheet" href="<?=ASSETS?>lib/flaticon/font/flaticon.css" > 
         <link rel="stylesheet" href="<?=ASSETS?>lib/owlcarousel/assets/owl.carousel.min.css" >
@@ -26,7 +25,7 @@
         <!-- Template Stylesheet -->
         <link href="<?=ASSETS?>css/style2.css" rel="stylesheet">
     </head>
-
+    <?php $this->view("menu",$data); ?>
     <body>
  
         <!-- Hero Start -->
@@ -35,6 +34,14 @@
                 <div class="row align-items-center">
                     <div class="col-sm-12 col-md-6">
                         <div class="hero-text">
+
+
+                        <?php if(isset($_SESSION['name'])): ?>
+
+                            <h3 style="color:gray;"> Hi <?=$_SESSION['name']?></h3>
+                         <?php endif; ?>
+
+                         
                             <h1>Where the journey begins</h1>
                             <p>
                                 Jardin is an open-air co-working space, that offers its clients a haven to work and enjoy a day out.
@@ -203,8 +210,8 @@
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
         <!-- JavaScript Libraries -->
-        <script src="<?=ASSETS?>https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="<?=ASSETS?>https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
         <script src="<?=ASSETS?>lib/easing/easing.min.js"></script>
         <script src="<?=ASSETS?>lib/wow/wow.min.js"></script>
         <script src="<?=ASSETS?>lib/owlcarousel/owl.carousel.min.js"></script>
@@ -212,8 +219,8 @@
         <script src="<?=ASSETS?>lib/lightbox/js/lightbox.min.js"></script>
         
         <!-- Contact Javascript File -->
-        <script src="<?=ASSETS?>mail/jqBootstrapValidation.min.js"></script>
-        <script src="<?=ASSETS?>mail/contact.js"></script>
+        <script src="mail/jqBootstrapValidation.min.js"></script>
+        <script src=">mail/contact.js"></script>
 
         <!-- Template Javascript -->
         <script src="<?=ASSETS?>js/main.js"></script>

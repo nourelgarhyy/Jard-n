@@ -3,8 +3,16 @@
 Class Login extends Controller
 {
     function index(){
-       
-        $this->view("login");
+        $data['page_title'] = "Login";
+
+        if(isset($_POST['email']) && isset($_POST['password'])){
+
+            $user = $this->loadModel("user");
+            $user->login($_POST);
+        }
+
+      $this->view("login",$data);
+     
     }
    
     }

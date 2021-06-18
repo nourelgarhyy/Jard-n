@@ -1,9 +1,9 @@
 <?php
 
-Class Register extends Controller
+Class OneJourney extends Controller
 {
     function index(){
-        $data['page_title'] = "Login";
+        $data['page_title'] = "Journey";
 
         if(isset($_POST['Submit'])){
 

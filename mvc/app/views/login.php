@@ -18,7 +18,7 @@ Password <br>
     <div class="text-center">
 <input class='SubmitButton' type="submit" value="Login" name="Submit">
     </div><br><br>
-   <div class="RegisterArea"> Already have an account? <a href="register">Register</a> </div>
+   <div class="RegisterArea"> Already have an account? <a href="<?=ROOT?>register">Register</a> </div>
 </form>
       </div>
       </div>

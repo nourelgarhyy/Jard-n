@@ -24,6 +24,7 @@ class Journeys {
         
         if (move_uploaded_file($_FILES['img']['tmp_name'], $target)) {
             $msg = "Image uploaded successfully";
+            echo $msg;
           //header("Location:viewHikes.php");  		
         }
         else{
@@ -63,15 +64,24 @@ class Journeys {
     
     }
  
-    function logout()
+    function bookJourney($journeyID)
 	{
-		//logged in
 		
-        session_unset();
-        session_destroy(); 
-
-		header("Location:". ROOT . "index");
-		die;
+    
+            $sql = "select * from Events where ID =$journeyID limit 1";
+            echo $sql;
+            $arr['journeyID'] = $journeyID;
+    
+            $DB = new Database();
+            $data = $DB->read($sql,$arr);
+            if(is_array($data))
+            {
+    
+                return $data[0];
+            }
+    
+            return false;
+        
 	}
 
    

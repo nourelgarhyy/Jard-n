@@ -67,13 +67,18 @@
                                     <div class="class-meta">
                                     <p><i class="far fa-calendar-alt"></i><?=$row->Date?></p>
                                     <p><i class="far fa-clock"></i><?=$row->Time?></p>
+                                    
+                                    <a href="<?=ROOT.'singleJourney/' .$row->ID; ?>" >
+
+                                    
                                 </div>
                             </div>
-                        </div>
+                        </div> 
+                        
                     </div>
                     
                    
-                    </div>
+                    </div><p style="position: absolute;left: 650px; top:170px;max-width: 350px;"> <?=$row->Description?></p>
                 </div>
             </div>
         </div>
@@ -87,7 +92,7 @@
             <div class="container">
                 <div class="container discount-text">
                     <p>
-                        Journeys allows you to view the ongoing ativities that is taking place in Jardin throughout the whole week and it's timings!
+                        Journeys allow you to view the ongoing ativities that is taking place in Jardin throughout the whole week and it's timings!
                     </p>
                 </div>
             </div>

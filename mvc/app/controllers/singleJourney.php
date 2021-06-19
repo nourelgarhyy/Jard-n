@@ -1,20 +1,31 @@
 <?php
 
-Class OneJourney extends Controller
+Class singleJourney extends Controller
 {
-    function index(){
-        $data['page_title'] = "Journey";
+	function index($link = '')
+	{
+ 	 	
+		if($link == "")
+		{
 
-        if(isset($_POST['Submit'])){
+			$data['page_title'] = "Image not found";
+			$this->view("minima/not_found",$data);
+		}else{
 
-            $user = $this->loadModel("user");
-            $user->AddUser($_POST);
-        }
+	 	 	$journey = $this->loadModel("journeys");
+            $result=$journey->bookJourney($link);
 
-      $this->view("register",$data);
+              
+      
 
-     
-    }
+	 	 	$data['journeys'] = $result;
+	 	 	
+	 	 	$data['title'] = "Single Journey";
+			$this->view("bookJourney",$data);
+		}
+
+	}
+
    
     }
 

@@ -1,8 +1,7 @@
-<?php if(is_array($data['journeys'])): ?>
+<?php if(is_array($data['journeys'])): 
 
 
-
-
+?>
 
 
 <!DOCTYPE html>
@@ -33,8 +32,9 @@
     </head>
 
     <body>
-        <?php include "menu.php" ?>
-
+    <?php
+    $this->view("menu");
+?>
 
         <!-- Page Header Start -->
         <div class="page-header">
@@ -67,8 +67,8 @@
                                     <div class="class-meta">
                                     <p><i class="far fa-calendar-alt"></i><?=$row->Date?></p>
                                     <p><i class="far fa-clock"></i><?=$row->Time?></p>
+                                    <input type="hidden" name="ID" value="<?php echo $_GET['id'];?>"><br>
                                     
-                                    <a href="<?=ROOT.'singleJourney/' .$row->ID; ?>" >
 
                                     
                                 </div>
@@ -78,7 +78,27 @@
                     </div>
                     
                    
-                    </div><p style="position: absolute;left: 650px; top:170px;max-width: 350px;"> <?=$row->Description?></p>
+                    </div><p style="position: absolute;left: 650px; top:120px; max-width: 350px;"> <?=$row->Description?>
+                 <br><br>
+                   Journey Points: <?=$row->JourneyPoints?> </p>
+                   
+                    <?php if(isset($_SESSION['role'])&& $_SESSION['role']=="Admin"): ?>
+                 
+  <a href="<?=ROOT.'viewJourneyDeets/' .$row->ID; ?>"  style="position: absolute;left: 1100px; top:160px;"> View Journey</a>
+                    <br> <br>
+
+ 
+                    <?php else: ?>
+
+                      
+                    <a href="<?=ROOT.'singleJourney/' .$row->ID; ?>"  style="position: absolute;left: 1100px; top:160px;"> Select Journey</a>
+                    <br> <br>
+
+                
+                 <?php endif; ?>
+
+
+
                 </div>
             </div>
         </div>

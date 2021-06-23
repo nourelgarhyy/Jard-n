@@ -38,7 +38,7 @@
 
                         <?php if(isset($_SESSION['name'])): ?>
 
-                            <h3 style="color:gray;"> Hi <?=$_SESSION['name']?></h3>
+                            <h2 style="color:gray;"> Hi, <?=$_SESSION['name']?>!</h2>
                          <?php endif; ?>
 
                          
@@ -54,7 +54,7 @@
                     </div>
                     <div class="col-sm-12 col-md-6 d-none d-md-block">
                         <div class="hero-image">
-                            <img src="<?=ASSETS?>img/ppl.png" alt="Hero Image">
+                            <img src="<?=ASSETS?>img/ppl2.png"   style="opacity: 0.8; border-radius:40%;" alt="Hero Image">
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-5 col-md-6">
                         <div class="about-img">
-                            <img src="<?=ASSETS?>img/header.jpg" alt="Image">
+                            <img src="<?=ASSETS?>img/header1.jpg" alt="Image" >
                         </div>
                     </div>
                     <div class="col-lg-7 col-md-6">
@@ -160,6 +160,18 @@
                     <div class="testimonial-item">
                         <div class="testimonial-img">
                             <img src="<?=ASSETS?>img/testimonial-4.jpg" alt="Image">
+                        </div>
+                        <div class="testimonial-text">
+                            <p>
+                                Lorem ipsum dolor sit amet consec adipis elit. Etiam accums lacus eget velit tincid, quis suscip justo dictum.
+                            </p>
+                            <h3>Customer Name</h3>
+                            <h4>Profession</h4>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-img">
+                            <img src="<?=ASSETS?>img/testimonial-3.jpg" alt="Image">
                         </div>
                         <div class="testimonial-text">
                             <p>

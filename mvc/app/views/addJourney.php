@@ -6,7 +6,10 @@
 
 </style>
 
-<?php include ('menu.php'); ?>
+<?php
+    $this->view("menu");
+?>
+
 <link href="<?=ASSETS?>css/forms1.css" rel="stylesheet">
 <html>
 

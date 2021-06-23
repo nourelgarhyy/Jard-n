@@ -64,12 +64,12 @@ class Journeys {
     
     }
  
-    function bookJourney($journeyID)
+    function selectJourney($journeyID)
 	{
 		
     
             $sql = "select * from Events where ID =$journeyID limit 1";
-            echo $sql;
+           
             $arr['journeyID'] = $journeyID;
     
             $DB = new Database();
@@ -83,9 +83,112 @@ class Journeys {
             return false;
         
 	}
+	
+	
+    function viewParticpants($journeyID){
+        //$sql ="select * from EventBooking where EventId =$journeyID ";
+        $sql="select H.ID,H.Name, H.Email
+            from eventbooking S 
+            inner join users H on S.UserID = H.ID
+            where  (S.EventId =".$journeyID.")";
 
-   
-      }
+
+        $DB = new Database();
+        $data = $DB->read($sql);
+        
+            if(is_array($data))
+            {
+                return $data;
+         
+            }
+    
+            return false;
+    }
+
+
+    function selectedJourney($journeyID){
+
+        $userID=$_SESSION['ID'];
+
+    
+    $sql ="select * from EventBooking where UserID =$userID AND EventId =$journeyID limit 1";
+    echo "$sql";
+    $arr['journeyID']=$journeyID;
+    $arr['UserID']=$userID;
+    show($arr);
+
+    $DB = new Database();
+    $data=$DB->read($sql,$arr);
+    show($data);
+    $bool= is_array($data);
+    echo $bool;
+
+    if(is_array($data)){
+       ?>
+        <script> alert("You selected this event before, check your cart.");</script>
+        <?php
+
+        //header("Location:". ROOT . "index");
+            die;
+
+    }
+    else 
+    {
+    $this->addJourneyToCart($journeyID);
+    }
+}
+
+
+
+    function addJourneyToCart($journeyID){
+
+       $UserID=$_SESSION['ID'];
+
+        $sql="INSERT EventBooking (UserID,EventID) 
+        VALUES ('".$UserID."','".$journeyID."') ";  
+        echo $sql;
+
+        $arr['journeyID'] = $journeyID;
+
+        $DB = new Database();
+        $data = $DB->write($sql,$arr);
+        ?>
+        <script> alert("The event was booked successfully, check your cart.");</script>
+
+         <?php
+       }
+
+       function viewJourneysInCart(){
+        $date= date('Y-m-d ');
+        $id= $_SESSION['ID'];
+        $sql="select S.ID, H.Name,H.Date,H.Time, H.Description, H.Price,H.JourneyPoints, H.Image
+        from EventBooking S
+        inner join Events H on S.EventID = H.ID
+        where  (S.UserID =".$id.")";
+
+       
+
+        $sql2="select SUM(Price) AS TotalPrice
+        from EventBooking S 
+        inner join Events H on S.EventID = H.ID
+        where  (S.UserID ='".$id." ' AND Date>'".$date."')";
+
+
+
+        $DB = new Database();
+        $data = $DB->read($sql);
+     
+        if(is_array($data))
+		{
+
+			return $data;
+		}
+
+		return false;
+    
+
+       }
+    }
 
 
     

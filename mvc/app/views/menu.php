@@ -1,32 +1,41 @@
+
 <link href="<?=ASSETS?>css/menu.css" rel="stylesheet" type="text/css">
 <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet'>
    
 <nav>
     
-<a href="index.php" class="logo">Jardin</a>
+<a href="<?=ROOT?>index" class="logo"> <div> <img src="<?=ASSETS?>img/logo.png" alt="Jardin" width="130" height="60"></div></a>
 
 <ul>
 <li><a href="<?=ROOT?>about">About</a></li>
-<li><a href="<?=ROOT?>viewJourneys">Journeys</a></li>
+<li><a href="<?=ROOT?>viewJourneys">Events</a></li>
+<li><a href="<?=ROOT?>calender">Book a Spot!</a></li>
+
 
 <?php 
 if(isset($_SESSION['role'])): ?>
 <?php if($_SESSION['role']=="Admin"): ?>
-    <li><a href="<?=ROOT?>addJourneys">Add Journeys</a></li>
+    <li><a href="<?=ROOT?>addJourneys">Add Events</a></li>
 <?php 
+endif;
+endif; 
 
-endif; ?>
-<?php endif; 
 ?>
-<li><a href="<?=ROOT?>Calender.php">Calender</a></li>
 
 <li><a href="<?=ROOT?>Contact.php">Contact</a></li>
+
+<li><a href="<?=ROOT?>FAQ">FAQ</a></li>
+
 
 
 <?php if(!isset($_SESSION['ID'])): ?>
     <li><a href="<?=ROOT?>login">Log In</a></li>
 <?php else: ?>
+   <li><a href="<?=ROOT?>profile">Profile</a></li>
     <li><a href="<?=ROOT?>logout">Log Out</a></li>
 <?php endif; ?>
+
+    <li><a href="<?=ROOT?>selectedEvents"><img src='<?=ASSETS?>img/cart.png' alt='cart' style='width:30px;height:30px;'></a></li>
+
 </ul>
 </nav>

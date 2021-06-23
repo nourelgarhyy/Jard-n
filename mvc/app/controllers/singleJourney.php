@@ -9,14 +9,12 @@ Class singleJourney extends Controller
 		{
 
 			$data['page_title'] = "Image not found";
-			$this->view("minima/not_found",$data);
+			$this->view("404",$data);
 		}else{
 
+			
 	 	 	$journey = $this->loadModel("journeys");
-            $result=$journey->bookJourney($link);
-
-              
-      
+            $result=$journey->selectJourney($link);
 
 	 	 	$data['journeys'] = $result;
 	 	 	

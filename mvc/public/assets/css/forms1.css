@@ -1,3 +1,12 @@
+.container {
+  border-radius: 5px;
+  background-color: #F2EAD4;
+  padding: 30px;
+  max-width: 500px;
+  height: 600px;
+  align-self: center;
+
+} 
   body{
   background-color: #FFFFFF;
      background-image: url('sg.jpg');
@@ -42,7 +51,7 @@ align-self: center;
 }
 input[type=text], input[type=password],input[type=email],  input[type=integer] select {
   width: 80%;
-    height: 6%;
+    height: 3%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -72,15 +81,7 @@ input[type=date]{
   box-sizing: border-box;
 }
 
-    .container {
-  border-radius: 5px;
-  background-color: #F2EAD4;
-  padding: 30px;
-         max-width: 500px;
-        height: 550px;
-        align-self: center;
-
-}
+ 
 
 
 .RegisterArea{
